@@ -1,6 +1,6 @@
 SocialHub - Fullstack Social Media Application
 
-SocialHub is a fullstack social media application developed using React JS, MaterialUI, Formik, Spring Boot, Spring Security 3, JWT, MySQL, and RazorPay. This project aims to provide users with a platform for social interactions akin to Twitter, with features such as tweet posting, editing, liking, sharing, real-time chatting, and seamless payments integration via RazorPay.
+SocialHub is a fullstack social media application developed using React JS, MaterialUI, Formik, Spring Boot 3, Spring Security 6, JWT, MySQL, and RazorPay. This project aims to provide users with a platform for social interactions akin to Twitter, with features such as tweet posting, editing, liking, sharing, real-time chatting, and seamless payments integration via RazorPay.
 Table of Contents
 
     Technologies Used
