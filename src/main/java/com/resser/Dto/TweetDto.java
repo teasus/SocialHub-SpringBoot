@@ -3,6 +3,8 @@ package com.resser.Dto;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.resser.modal.Tweet;
+
 import lombok.Data;
 
 @Data

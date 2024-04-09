@@ -76,6 +76,7 @@ public class TweetDtoMapper {
         tweetDto.setLiked(isLiked);
         tweetDto.setVideo(tweet.getVideo());
         tweetDto.setReply(tweet.isReply());
+        tweetDto.setReplyTweets(toTweetDtos(tweet.getReplyTweet(), reqUser));
         tweetDto.setReTweet(isRetweeted);
         tweetDto.setReTweetUserId(reTweetUserId);
         

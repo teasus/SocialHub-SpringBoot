@@ -25,7 +25,7 @@ import com.resser.modal.User;
 import com.resser.service.UserService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -90,7 +90,7 @@ public class UserController {
     }
 
     @PutMapping("/{userId}/follow")
-    public ResponseEntity<UserDto> updateProfile(@PathVariable("userId") Long userId, @RequestHeader("Authorization") String jwt)
+    public ResponseEntity<UserDto> followUser(@PathVariable("userId") Long userId, @RequestHeader("Authorization") String jwt)
             throws UserException {
         User reqUser = userService.UserProfileByJwt(jwt);
 

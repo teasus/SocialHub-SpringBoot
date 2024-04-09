@@ -117,6 +117,7 @@ public class TweetController {
     @RequestHeader("Authorization") String jwt )  throws UserException,TweetException {
 
         List<Tweet> tweets = tweetService.findAllTweets();
+        System.out.println("twtss");
 
         User user = userService.UserProfileByJwt(jwt);
 

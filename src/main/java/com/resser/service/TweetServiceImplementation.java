@@ -113,7 +113,7 @@ public class TweetServiceImplementation implements TweetService {
        replyFor.getReplyTweet().add(savedReplyTweet);
        tweetRepository.save(replyFor);
 
-        return savedReplyTweet ;
+        return replyFor ;
     }
 
     @Override

@@ -55,7 +55,6 @@ public class AuthController {
 		User createdUser = new User();
 		createdUser.setEmail(email);
 		createdUser.setPassword(passwordEncoder.encode(user.getPassword()));
-		createdUser.setPassword(password);
 		createdUser.setFullName(fullName);
 		createdUser.setBirthDate(birthDate);
 		createdUser.setVerification(new Verification());
@@ -90,11 +89,12 @@ public class AuthController {
 	private Authentication  authenticate(String username,String password){
 		
 		UserDetails userDetails = customUserDetails.loadUserByUsername(username);
-		
+	
 		if(userDetails == null) {
 			throw new BadCredentialsException("invalid username");
 		}
 		if(!passwordEncoder.matches(password, userDetails.getPassword())) {
+		
 			throw new BadCredentialsException("invalid username or password");
 		}
 		
