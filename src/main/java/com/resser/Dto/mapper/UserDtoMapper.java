@@ -20,7 +20,7 @@ public class UserDtoMapper {
             userDto.setLocation(user.getLocation());
             userDto.setFollowers(toUserDto(user.getFollowers()));
             userDto.setFollowing(toUserDto(user.getFollowings()));
-            userDto.setLogin_with_google(user.isLogin_with_google());
+            userDto.setLogin_with_google(user.isIsLogin_with_google());
             // userDto.setVerfied(false);
             return userDto;
     }

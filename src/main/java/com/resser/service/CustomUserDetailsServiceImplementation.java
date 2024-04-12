@@ -24,7 +24,7 @@ public class CustomUserDetailsServiceImplementation implements UserDetailsServic
 		
 		User user = userRepository.findByEmail(username);
 		
-		if(user==null || user.isLogin_with_google()) {
+		if(user==null || user.isIsLogin_with_google()) {
 			throw new UsernameNotFoundException("Username not found with email = "+username);
 		}
 		

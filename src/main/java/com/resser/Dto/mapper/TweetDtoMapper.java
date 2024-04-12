@@ -72,7 +72,7 @@ public class TweetDtoMapper {
         tweetDto.setTotalLikes(tweet.getLikes().size());
         tweetDto.setTotalReplies(tweet.getReplyTweet().size());
         tweetDto.setTotalReTweets(tweet.getReTweetUser().size());
-        tweetDto.setUser(user);
+        tweetDto.setUser(UserDtoMapper.toUserDto(tweet.getUser()));
         tweetDto.setLiked(isLiked);
         tweetDto.setVideo(tweet.getVideo());
         tweetDto.setReply(tweet.isReply());
