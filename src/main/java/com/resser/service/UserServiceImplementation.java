@@ -106,4 +106,11 @@ public class UserServiceImplementation implements UserService {
         return userRepository.searchUser(query);
     }
 
+    @Override
+    public List<User> getAllUserList() throws UserException {
+        
+        return userRepository.findAll();
+       
+    }
+
 }

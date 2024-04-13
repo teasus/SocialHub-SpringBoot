@@ -41,6 +41,14 @@ public class ChatController {
 
         return new ResponseEntity<>(chats,HttpStatus.OK);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<Chat> getChatById(@PathVariable("id") Long id, @RequestHeader("Authorization") String jwt) throws UserException {
+        User user = userService.UserProfileByJwt(jwt);
+
+        Chat chats = chatService.findChatById(id);
+
+        return new ResponseEntity<>(chats,HttpStatus.OK);
+    }
 
     @PostMapping("/NewChat/{userId}")
     public ResponseEntity<Chat> createNewChat(@RequestHeader("Authorization") String jwt,@PathVariable("userId")Long chatUser) throws UserException {

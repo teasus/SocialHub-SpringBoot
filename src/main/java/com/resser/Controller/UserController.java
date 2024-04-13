@@ -103,4 +103,20 @@ public class UserController {
         return new ResponseEntity<>(userDto,HttpStatus.ACCEPTED);
     }
 
+    @GetMapping("/All")
+    public ResponseEntity<List<UserDto>> getAllUserList()
+            throws UserException {
+   
+        List<User> allUser = userService.getAllUserList();
+        
+        List<UserDto> converted = UserDtoMapper.toUserDto(allUser);
+                
+
+       
+
+        
+
+        return new ResponseEntity<>(converted, HttpStatus.ACCEPTED);
+    }
+
 }

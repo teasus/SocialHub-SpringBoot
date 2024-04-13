@@ -33,6 +33,8 @@ public class ChatServiceImplementation implements ChatService {
 
         Chat chat = new Chat();
         chat.setCreatedBy(reqUser);
+        chat.setChatImage(user.getImage());
+        chat.setChatName(user.getFullName());
         chat.getUsers().add(user);
         chat.getUsers().add(reqUser);
         chat.setGroup(false);

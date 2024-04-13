@@ -30,7 +30,7 @@ import com.resser.service.UserService;
 @RestController
 @RequestMapping("/api/message")
 public class MessageController {
-
+    @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
 
     // @Autowired
@@ -45,10 +45,12 @@ public class MessageController {
     @Autowired
     private ChatService chatService;
 
-    @MessageMapping("/chat")
+    @MessageMapping("/message")
     @SendTo("/group/public")
-    public ResponseEntity<Message> recieveMessage(@Payload Message message) throws Exception {
-        simpMessagingTemplate.convertAndSend("/group/" + message.getId().toString(), message);
+    public ResponseEntity<Message> recieveMessage(@Payload Message message)
+            throws Exception {
+        System.out.println("mentall ");
+        simpMessagingTemplate.convertAndSend("/group/" + message.getChat().getId().toString(), message);
         Thread.sleep(1000);
         Message newMessage = new Message();
         newMessage.setContent(message.getContent());
@@ -83,7 +85,7 @@ public class MessageController {
     }
 
     @GetMapping("/ChatMessages/{chatId}")
-    public ResponseEntity<List<Message>> createTweet(@PathVariable("chatId") Long chatId,
+    public ResponseEntity<List<Message>> getAllMessagesOfChat(@PathVariable("chatId") Long chatId,
             @RequestHeader("Authorization") String jwt) throws Exception {
         User user = userService.UserProfileByJwt(jwt);
         List<Message> messages = messagingService.findByChatId(chatId);
